@@ -1,0 +1,16 @@
+<div style="display: flex; justify-content: center" *ngIf="loading">
+  <mat-spinner diameter="20" color="accent"></mat-spinner>
+</div>
+
+<div *ngIf="!loading" class="gnral">
+  <div class="loogo">
+    <img [src]="startup.logo" width="350px" height="250px" />
+  </div>
+  <div class="details">
+    <div>{{ "Name:" + " " }}{{ startup.name }}</div>
+    <div>{{ "city:" + " " }}{{ startup.city }}</div>
+    <div>{{ "Email:" + " " }}{{ startup.emailAddress }}</div>
+    <div>{{ "sector:" + " " }}{{ startup.sectors }}</div>
+    <div>{{ "no. Of Employees:" + " " }}{{ startup.numberOfEmployees }}</div>
+  </div>
+</div>

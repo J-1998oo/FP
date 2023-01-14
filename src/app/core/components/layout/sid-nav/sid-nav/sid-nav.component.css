@@ -1,0 +1,95 @@
+.col {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #15172b;
+  color: #eee;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+  width: 100%;
+}
+
+mat-sidenav {
+  width: 200px;
+  background-color: #303245;
+  color: #eee;
+  padding: 1rem;
+}
+
+mat-nav-list {
+  border: 1px solid #dc2f55;
+  background-color: #808097;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logoName {
+  display: flex;
+  align-items: center;
+}
+.material-icons{
+  padding-left: 10px;
+}
+
+.mat-icon {
+  color: #808097;
+  margin-inline-end: 10px;
+}
+.item-text {
+  margin-bottom: 8px;
+  margin-top: 4px;
+  border: 1px solid #dc2f55;
+  background-color: #808097;
+  border-radius: 12px;
+}
+a{
+  text-decoration: none;
+}
+.logoutBtn {
+  border: 1px solid #dc2f55;
+  background-color: #808097;
+  border-radius: 12px;
+  padding: 8px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 42px;
+}
+.listLogoutBtn{
+
+  border: 1px solid #dc2f55;
+  background-color: #808097;
+  border-radius: 12px;
+  padding: 8px;
+  width: 167px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 56px;
+}
+
+.webName {
+  display: flex;
+  align-items: center;
+}
+
+main{
+  padding: 1rem;
+  margin: 1rem ;
+}
+
+
+/* ----------------------- */

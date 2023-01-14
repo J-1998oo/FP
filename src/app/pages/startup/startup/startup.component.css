@@ -1,0 +1,41 @@
+.row {
+  display: flex;
+
+}
+
+.col {
+  flex: 1;
+}
+
+.align-end {
+  text-align: end;
+}
+
+.btn-action {
+  margin-inline-start: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.btn-action {
+  border: 1px solid #dc2f55;
+  border-radius: 12px;
+  padding: 8px;
+  width: 100px;
+  align-items: center;
+  cursor: pointer;
+  height: 42px;
+}
+
+.lstBtn {
+  border: 1px solid #dc2f55;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}

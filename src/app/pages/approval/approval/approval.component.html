@@ -1,0 +1,87 @@
+<div class="col">
+  <h2>Startups Requests</h2>
+  <div class="row">
+    <div class="filter-col">
+      <mat-form-field  appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="container">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="approve">
+        <th mat-header-cell *matHeaderCellDef>Approve</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="approveIt(row)">
+            <mat-icon>check</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="startupName">
+        <th mat-header-cell *matHeaderCellDef>startup name</th>
+        <td mat-cell *matCellDef="let element">{{ element.startupName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>city</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.city }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sectors">
+        <th mat-header-cell *matHeaderCellDef>sectors</th>
+        <td mat-cell *matCellDef="let element">{{ element.sectors }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="founderName">
+        <th mat-header-cell *matHeaderCellDef>founder name</th>
+        <td mat-cell *matCellDef="let element">{{ element.founderName }}</td>
+      </ng-container>
+      <ng-container matColumnDef="emailAddress">
+        <th mat-header-cell *matHeaderCellDef>email address</th>
+        <td mat-cell *matCellDef="let element">{{ element.emailAddress }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef style="width: 60px">action</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            (click)="$event.stopPropagation()"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onDeleteRowClicked(element.id)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        (click)="onRowClicked(row.id)"
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="selection.toggle(row)"
+      ></tr>
+    </table>
+</div>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+      class="mat-elevation-z8"
+    >
+    </mat-paginator>
+</div>

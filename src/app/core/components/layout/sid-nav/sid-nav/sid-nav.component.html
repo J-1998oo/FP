@@ -1,0 +1,98 @@
+<mat-toolbar>
+  <div class="navBar">
+    <div class="logoName">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>list</mat-icon>
+      </button>
+      <span>My App</span>
+    </div>
+    <div>
+      <button class="logoutBtn" (click)="logOutBtn()">
+        log out <span class="material-icons"> logout </span>
+      </button>
+    </div>
+  </div>
+  <span class="col"></span>
+</mat-toolbar>
+<!--
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <mat-list-item *ngFor="let items of navServiceList.children">
+    </mat-list-item>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+ -->
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <div style="display: flex; justify-content: center" *ngIf="loading">
+      <mat-spinner diameter="20" color="accent"></mat-spinner>
+    </div>
+
+    <mat-list *ngIf="!loading">
+      <div *ngFor="let item of navMenu.children">
+        <div *ngIf="item.children.length > 0; else hasNoChildren">
+          <mat-list-item
+            *ngIf="item.role === userData.role || item.role.length === 0"
+          >
+            <mat-icon matListItemIcon>
+              {{ item.icon }}
+            </mat-icon>
+            <div matListItemTitle>
+              {{ item.displayName }}
+            </div>
+          </mat-list-item>
+          <div *ngFor="let childOfItem of item.children">
+            <a
+              [routerLink]="[childOfItem.route]"
+              *ngIf="
+                childOfItem.role === userData.role ||
+                childOfItem.role.length === 0
+              "
+            >
+              <mat-list-item>
+                <mat-icon matListItemIcon>
+                  {{ childOfItem.icon }}
+                </mat-icon>
+                <div matListItemTitle>
+                  {{ childOfItem.displayName }}
+                </div>
+              </mat-list-item>
+            </a>
+          </div>
+        </div>
+
+        <ng-template #hasNoChildren>
+          <a
+            [routerLink]="[item.route]"
+            *ngIf="item.role === userData.role || item.role.length === 0"
+          >
+            <mat-list-item class="item-text">
+              <mat-icon matListItemIcon>
+                {{ item.icon }}
+              </mat-icon>
+              <div matListItemTitle>
+                {{ item.displayName }}
+              </div>
+            </mat-list-item>
+          </a>
+        </ng-template>
+      </div>
+      <div>
+        <button class="listLogoutBtn" (click)="logOutBtn()">
+          log out <span class="material-icons"> logout </span>
+        </button>
+      </div>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main class="mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
